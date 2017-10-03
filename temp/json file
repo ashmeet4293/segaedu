@@ -1,0 +1,19 @@
+{
+    "userId": 1,
+    "studentName": "Ashmeet",
+    "userName": "ashmeet4293",
+    "gender": "M",
+    "dob": "1996",
+    "fatherName": "Tiwary",
+    "email": "ashmeet4293@gmail.com",
+    "permanentAddress": "Lekhnath",
+    "temporaryAddress": "Pokhara",
+    "mobileNo": "ashmeet4293@gmail.com",
+    "phoneNo": "998899",
+    "academicDetails": "Bachelor Running",
+    "courseCode": "p1",
+    "lastModifiedBy": "Tiwary",
+    "lastModifiedDate": 1501359570753,
+    "registeredBy": "Tiwary",
+    "registeredDate": 1501359570753
+}
