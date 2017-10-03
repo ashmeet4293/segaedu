@@ -13,13 +13,13 @@ public class DefaultController {
         return "Hello World m spring boot ";
     }
 
-//    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_USER")
     @RequestMapping("/user")
     public String test(){
         return "Role User";
     }
 
-//    @Secured({"ROLE_ADMIN","ROLE_USER"})
+    @Secured({"ROLE_ADMIN","ROLE_USER"})
     @RequestMapping("/admin")
     public String adminUser(){
         return "Role Admin";

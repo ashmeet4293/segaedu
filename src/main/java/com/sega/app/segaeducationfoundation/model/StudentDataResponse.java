@@ -24,6 +24,7 @@ public class StudentDataResponse {
     private String registeredBy;
     private Date registeredDate;
     private String roles;
+    private String password;
 
 
     public StudentDataResponse(StudentDataEntity studentDataEntity){
@@ -45,6 +46,7 @@ public class StudentDataResponse {
         this.registeredBy=studentDataEntity.getRegisteredBy();
         this.registeredDate=studentDataEntity.getRegisteredDate();
         this.roles=studentDataEntity.getRoles();
+        this.password=studentDataEntity.getPassword();
     }
 
     public Integer getUserId() {
@@ -189,5 +191,13 @@ public class StudentDataResponse {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

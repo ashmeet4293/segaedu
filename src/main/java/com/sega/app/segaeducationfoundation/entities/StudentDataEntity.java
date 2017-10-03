@@ -3,11 +3,12 @@ package com.sega.app.segaeducationfoundation.entities;
 import com.sega.app.segaeducationfoundation.model.StudentDataVO;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "student_data")
-public class StudentDataEntity {
+public class StudentDataEntity implements Serializable {
     @Id
     @GeneratedValue
     @Column(name="student_id")
@@ -61,8 +62,13 @@ public class StudentDataEntity {
     @Column(name="REGISTERED_DATE")
     private Date registeredDate;
 
-    @Column(name="ROLES")
+    @Column(name="ROLE")
     private String roles;
+
+
+
+    @Column(name="PASSWORD")
+    private String password;
 
     public StudentDataEntity(StudentDataVO studentDataVO){
         this.studentName=studentDataVO.getStudentName();
@@ -78,6 +84,7 @@ public class StudentDataEntity {
         this.academicDetails=studentDataVO.getAcademicDetails();
         this.courseCode=studentDataVO.getCourseCode();
         this.roles=studentDataVO.getRoles();
+        this.password=studentDataVO.getPassword();
 
     }
 
@@ -227,5 +234,12 @@ public class StudentDataEntity {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

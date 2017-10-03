@@ -18,6 +18,7 @@ public class StudentDataVO {
     private String academicDetails;
     private String courseCode;
     private String roles;
+    private String password;
 
 
 
@@ -35,6 +36,7 @@ public class StudentDataVO {
         this.academicDetails=studentDataEntity.getAcademicDetails();
         this.courseCode=studentDataEntity.getCourseCode();
         this.roles=studentDataEntity.getRoles();
+        this.password=studentDataEntity.getPassword();
     }
 
     public StudentDataVO(){
@@ -141,5 +143,13 @@ public class StudentDataVO {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

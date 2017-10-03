@@ -146,22 +146,53 @@ databaseChangeLog:
 #                tableName: student_data
 #                schemaName: segaedu
 
-  - changeSet:
-     id: dropColumn-example
-     author: Ashmeet
-     changes:
-     - dropColumn:
-         columnName: role
-         schemaName: segaedu
-         tableName: student_data
+#  - changeSet:
+#     id: dropColumn-example
+#     author: Ashmeet
+#     changes:
+#     - dropColumn:
+#         columnName: roles
+#         schemaName: segaedu
+#         tableName: student_data
+
+#  - changeSet:
+#     id: renameColumn
+#     author: Ashmeet
+#     changes:
+#     - renameColumn:
+#         columnDataType: varchar(50)
+#         newColumnName: ROLE
+#         oldColumnName: Roles
+#         schemaName: segaedu
+#         tableName: student_data
 
   - changeSet:
-     id: renameColumn
-     author: Ashmeet
-     changes:
-     - renameColumn:
-         columnDataType: varchar(50)
-         newColumnName: ROLES
-         oldColumnName: Roles
-         schemaName: segaedu
-         tableName: student_data
+        id: Adding_password_field
+        author: Ashmeet
+        changes:
+            - addColumn:
+                columns:
+                    - column:
+                        name: PASSWORD
+                        type: varchar(100)
+                        autoIncrement: false
+                        constraints:
+                            primaryKey: false
+                            nullable: false
+                tableName: student_data
+                schemaName: segaedu
+  - changeSet:
+        id: Adding_role_field
+        author: Ashmeet
+        changes:
+            - addColumn:
+                columns:
+                    - column:
+                        name: ROLE
+                        type: varchar(50)
+                        autoIncrement: false
+                        constraints:
+                            primaryKey: false
+                            nullable: false
+                tableName: student_data
+                schemaName: segaedu
