@@ -3,17 +3,18 @@ header: Accept:application/json
 Content-Type:application/json; charset=UTF-8
 
 {
-"studentName":"bijesh",
-"userName":"arjun",
+"studentName":"pawan",
+"userName":"ashmeet4293",
 "gender":"M",
 "dob":"1996",
 "fatherName":"Tiwary",
-"email":"ashmeet4293@gmail.com",
+"email":"ashmeet4294@gmail.com",
 "permanentAddress":"Pokhara",
 "temporaryAddress":"Pokhara",
 "mobileNo":"985454646",
 "phoneNo":"4545654",
-"academicDetails":"+2 pass",
+"academicDetails":"Bachelor",
 "courseCode":"101",
-"roles":"admin"
+"roles":"ROLE_ADMIN,ROLE_USER",
+"password":"adminuser"
 }

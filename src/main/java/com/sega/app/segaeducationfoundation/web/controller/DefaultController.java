@@ -7,19 +7,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value="")
+
 public class DefaultController {
     @RequestMapping()
     public String index(){
         return "Hello World m spring boot ";
     }
 
-    @Secured("ROLE_USER")
+
     @RequestMapping("/user")
     public String test(){
         return "Role User";
     }
 
-    @Secured({"ROLE_ADMIN","ROLE_USER"})
+//    @Secured({"ROLE_ADMIN","ROLE_USER"})
     @RequestMapping("/admin")
     public String adminUser(){
         return "Role Admin";

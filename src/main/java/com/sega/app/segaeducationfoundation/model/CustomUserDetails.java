@@ -25,8 +25,18 @@ public class CustomUserDetails extends StudentDataEntity implements UserDetails 
         Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
         String roles = studentDataEntity.getRoles();
 
-        authorities.add(new SimpleGrantedAuthority(roles));
-        System.out.println("AUTHORITIES ARE : " + authorities);
+
+        String[] parts = roles.split(",");
+        String part1 = parts[0]; // 004
+        String part2 = parts[1]; // 034556
+
+
+        authorities.add(new SimpleGrantedAuthority(part1));
+        authorities.add(new SimpleGrantedAuthority(part2));
+
+        for(GrantedAuthority autho: authorities) {
+            System.out.println("AUTHORITIES ARE : " + autho.getAuthority());
+        }
         return authorities;
 
     }

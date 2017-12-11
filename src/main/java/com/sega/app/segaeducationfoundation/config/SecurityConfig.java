@@ -11,9 +11,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
-@EnableGlobalMethodSecurity(securedEnabled = true)
-@Configuration
+//
+//@EnableGlobalMethodSecurity(securedEnabled = true)
+//@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -32,10 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/studentdata/**").permitAll()
-                .antMatchers("/user/**").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                .antMatchers("**/studentdata/**").permitAll()
+                .antMatchers("**/user/**").permitAll()
+                .antMatchers("**/admin/**").hasRole("ADMIN")
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
 //                .loginPage("/login")
