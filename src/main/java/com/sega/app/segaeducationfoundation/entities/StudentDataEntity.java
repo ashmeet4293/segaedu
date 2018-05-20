@@ -21,7 +21,7 @@ public class StudentDataEntity implements Serializable {
     private String userName;
 
     @Column(name="GENDER")
-    private Character gender;
+    private String gender;
 
     @Column(name="DOB")
     private String dob;
@@ -77,8 +77,8 @@ public class StudentDataEntity implements Serializable {
         this.dob=studentDataVO.getDob();
         this.fatherName=studentDataVO.getFatherName();
         this.email=studentDataVO.getEmail();
-        this.permanentAddress=studentDataVO.getPermanentAddress();
-        this.temporaryAddress=studentDataVO.getTemporaryAddress();
+//        this.permanentAddress=studentDataVO.getPermanentAddress();
+//        this.temporaryAddress=studentDataVO.getTemporaryAddress();
         this.mobileNo=studentDataVO.getMobileNo();
         this.phoneNo=studentDataVO.getPhoneNo();
         this.academicDetails=studentDataVO.getAcademicDetails();
@@ -116,11 +116,11 @@ public class StudentDataEntity implements Serializable {
         this.userName = userName;
     }
 
-    public Character getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -241,5 +241,23 @@ public class StudentDataEntity implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setStudentDataVO(StudentDataVO studentDataVO) {
+        this.studentName=studentDataVO.getStudentName();
+        this.userName=studentDataVO.getUserName();
+        this.gender=studentDataVO.getGender();
+        this.dob=studentDataVO.getDob();
+        this.fatherName=studentDataVO.getFatherName();
+        this.email=studentDataVO.getEmail();
+//        this.permanentAddress=studentDataVO.getPermanentAddress();
+//        this.temporaryAddress=studentDataVO.getTemporaryAddress();
+        this.mobileNo=studentDataVO.getMobileNo();
+        this.phoneNo=studentDataVO.getPhoneNo();
+        this.academicDetails=studentDataVO.getAcademicDetails();
+        this.courseCode=studentDataVO.getCourseCode();
+        this.roles=studentDataVO.getRoles();
+        this.password=studentDataVO.getPassword();
+
     }
 }

@@ -9,12 +9,12 @@ public class StudentDataResponse {
     private Integer userId;
     private String studentName;
     private String userName;
-    private Character gender;
+    private String gender;
     private String dob;
     private String fatherName;
     private String email;
-    private String permanentAddress;
-    private String temporaryAddress;
+    private AddressVO permanentAddress;
+//    private String temporaryAddress;
     private String mobileNo;
     private String phoneNo;
     private String academicDetails;
@@ -35,8 +35,8 @@ public class StudentDataResponse {
         this.dob=studentDataEntity.getDob();
         this.fatherName=studentDataEntity.getFatherName();
         this.email=studentDataEntity.getEmail();
-        this.permanentAddress=studentDataEntity.getPermanentAddress();
-        this.temporaryAddress=studentDataEntity.getTemporaryAddress();
+//        this.permanentAddress=studentDataEntity.getPermanentAddress();
+//        this.temporaryAddress=studentDataEntity.getTemporaryAddress();
         this.mobileNo=studentDataEntity.getEmail();
         this.phoneNo=studentDataEntity.getPhoneNo();
         this.academicDetails=studentDataEntity.getAcademicDetails();
@@ -73,11 +73,11 @@ public class StudentDataResponse {
         this.userName = userName;
     }
 
-    public Character getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -105,20 +105,12 @@ public class StudentDataResponse {
         this.email = email;
     }
 
-    public String getPermanentAddress() {
+    public AddressVO getPermanentAddress() {
         return permanentAddress;
     }
 
-    public void setPermanentAddress(String permanentAddress) {
+    public void setPermanentAddress(AddressVO permanentAddress) {
         this.permanentAddress = permanentAddress;
-    }
-
-    public String getTemporaryAddress() {
-        return temporaryAddress;
-    }
-
-    public void setTemporaryAddress(String temporaryAddress) {
-        this.temporaryAddress = temporaryAddress;
     }
 
     public String getMobileNo() {
