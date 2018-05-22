@@ -27,14 +27,13 @@ dependencies {
    // compile ('org.springframework.security:spring-security-web:5.0.0.M4')
  //   compile('org.springframework.security:spring-security-web:5.0.0.BUILD-SNAPSHOT')
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
-//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.2.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.2.5.RELEASE'
 
-//    compile 'org.springframework.security:spring-security-web:5.0.0.M4'
     compile 'com.google.code.gson:gson:2.8.1'
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-groovy-templates')
 
-    compile('org.liquibase:liquibase-core')
+//    compile('org.liquibase:liquibase-core')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

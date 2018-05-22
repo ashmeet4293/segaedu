@@ -4,18 +4,25 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="role_id")
     private Integer id;
 
+    @Column(name="Authorities")
     private String role;
 
     @ManyToMany(mappedBy = "roles")
     private List<StudentDataEntity> studentDataEntityList = new ArrayList<StudentDataEntity>();
 
-    public Role() {
+    public Role(Integer id) {
+        this.id=id;
+
+    }
+    public Role(){
 
     }
 

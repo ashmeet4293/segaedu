@@ -1,10 +1,13 @@
 package com.sega.app.segaeducationfoundation.service;
 
 import com.google.gson.Gson;
+import com.sega.app.segaeducationfoundation.common.SegaEduException;
+import com.sega.app.segaeducationfoundation.entities.Role;
 import com.sega.app.segaeducationfoundation.entities.StudentDataEntity;
 import com.sega.app.segaeducationfoundation.model.AddressVO;
 import com.sega.app.segaeducationfoundation.model.StudentDataResponse;
 import com.sega.app.segaeducationfoundation.model.StudentDataVO;
+import com.sega.app.segaeducationfoundation.repository.RoleRepository;
 import com.sega.app.segaeducationfoundation.repository.StudentDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +19,14 @@ import java.util.List;
 public class StudentDataService {
     @Autowired
     StudentDataRepository studentDataRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
-    public StudentDataResponse saveUser(StudentDataVO studentDataVO, String employeeName) {
+    @Autowired
+    RoleService roleService;
+
+
+    public StudentDataResponse saveUser(StudentDataVO studentDataVO, Integer roleId, String employeeName) throws  SegaEduException {
 
         StudentDataEntity studentDataEntity = new StudentDataEntity(studentDataVO);
         studentDataEntity.setRegisteredBy(employeeName);
@@ -25,8 +34,17 @@ public class StudentDataService {
         studentDataEntity.setRegisteredDate(utilDate);
         studentDataEntity.setLastModifiedBy(employeeName);
         studentDataEntity.setLastModifiedDate(utilDate);
-
         studentDataEntity.setPermanentAddress(convertAddressToString(studentDataVO.getPermanentAddress()));
+
+        Role selectedRole=roleService.getRoleById(roleId);
+        if(selectedRole==null){
+            throw new SegaEduException("Role id not found in database");
+        }
+
+        List<Role> roles=new ArrayList<>();
+        roles.add(selectedRole);
+
+        studentDataEntity.setRoles(roles);
 
         StudentDataEntity savedUser = studentDataRepository.save(studentDataEntity);
         StudentDataResponse response = new StudentDataResponse(savedUser);
@@ -74,12 +92,6 @@ public class StudentDataService {
         StudentDataEntity studentDataEntity = studentDataRepository.findOne(studentId);
         if (studentDataEntity != null) {
 
-//            employeeInfoEntity.setEmployeesName(convertNameToString(employeeInfoVO.getEmployeesName()));
-//            employeeInfoEntity.setInfo(convertInfoToString(employeeInfoVO.getInfoVO()));
-//            employeeInfoEntity.setEmail(employeeInfoVO.getEmail());
-//            employeeInfoEntity.setDob(employeeInfoVO.getDob());
-//            employeeInfoEntity.setIdType(employeeInfoVO.getIdType());
-//            employeeInfoEntity.setFileNo(employeeInfoVO.getFileNo());
 
 
             studentDataEntity.setStudentDataVO(studentDataVO);

@@ -17,7 +17,6 @@ public class StudentDataVO {
     private String phoneNo;
     private String academicDetails;
     private String courseCode;
-    private String roles;
     private String password;
 
 
@@ -126,16 +125,6 @@ public class StudentDataVO {
         return courseCode;
     }
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
 
     public String getPassword() {
         return password;

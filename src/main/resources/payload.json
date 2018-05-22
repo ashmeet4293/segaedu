@@ -2,19 +2,24 @@ header: Accept:application/json
 
 Content-Type:application/json; charset=UTF-8
 
+Post : http://localhost:8080/studentdata/student/1
+
 {
-"studentName":"pawan",
-"userName":"ashmeet4293",
-"gender":"M",
-"dob":"1996",
-"fatherName":"Tiwary",
-"email":"ashmeet4294@gmail.com",
-"permanentAddress":"Pokhara",
-"temporaryAddress":"Pokhara",
-"mobileNo":"985454646",
-"phoneNo":"4545654",
-"academicDetails":"Bachelor",
-"courseCode":"101",
-"roles":"ROLE_ADMIN,ROLE_USER",
-"password":"adminuser"
+"studentName":"ashmeet Tiwary",
+"userName":"ashmeet",
+"gender":"m",
+"dob":"2010",
+"fatherName":"dad",
+"email":"ashmeet@4293@gmail.com",
+"permanentAddress":
+{
+"streetName": "Pokhara",
+"municipality" : "pokhara-lekhnath",
+"zone":"gandaki",
+"district":"kaski"
+},
+"mobileNo":"9846744037",
+"phoneNo":"9846744037",
+"academicDetails":"matrix 3rd year",
+"courseCode":"101"
 }

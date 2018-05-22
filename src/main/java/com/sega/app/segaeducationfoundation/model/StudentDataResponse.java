@@ -1,8 +1,10 @@
 package com.sega.app.segaeducationfoundation.model;
 
+import com.sega.app.segaeducationfoundation.entities.Role;
 import com.sega.app.segaeducationfoundation.entities.StudentDataEntity;
 
 import java.util.Date;
+import java.util.List;
 
 public class StudentDataResponse {
 
@@ -23,7 +25,7 @@ public class StudentDataResponse {
     private Date lastModifiedDate;
     private String registeredBy;
     private Date registeredDate;
-    private String roles;
+    private List<Role> roles;
     private String password;
 
 
@@ -37,7 +39,7 @@ public class StudentDataResponse {
         this.email=studentDataEntity.getEmail();
 //        this.permanentAddress=studentDataEntity.getPermanentAddress();
 //        this.temporaryAddress=studentDataEntity.getTemporaryAddress();
-        this.mobileNo=studentDataEntity.getEmail();
+        this.mobileNo=studentDataEntity.getMobileNo();
         this.phoneNo=studentDataEntity.getPhoneNo();
         this.academicDetails=studentDataEntity.getAcademicDetails();
         this.courseCode=studentDataEntity.getCourseCode();
@@ -45,8 +47,8 @@ public class StudentDataResponse {
         this.lastModifiedDate=studentDataEntity.getLastModifiedDate();
         this.registeredBy=studentDataEntity.getRegisteredBy();
         this.registeredDate=studentDataEntity.getRegisteredDate();
-        this.roles=studentDataEntity.getRoles();
         this.password=studentDataEntity.getPassword();
+//        this.roles=studentDataEntity.getRoles();
     }
 
     public Integer getUserId() {
@@ -177,11 +179,11 @@ public class StudentDataResponse {
         this.registeredDate = registeredDate;
     }
 
-    public String getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(String roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

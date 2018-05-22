@@ -1,5 +1,6 @@
 package com.sega.app.segaeducationfoundation.web.controller;
 
+import com.sega.app.segaeducationfoundation.common.SegaEduException;
 import com.sega.app.segaeducationfoundation.model.StudentDataResponse;
 import com.sega.app.segaeducationfoundation.model.StudentDataVO;
 import com.sega.app.segaeducationfoundation.service.StudentDataService;
@@ -18,7 +19,7 @@ public class StudentDataController {
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/student")
     public ResponseEntity getUsers() {
         try {
-
+//            System.out.println();
             return ResponseEntity.ok(studentDataService.getAllUsers());
 
         } catch (Exception e) {
@@ -41,12 +42,16 @@ public class StudentDataController {
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json", value = "/student")
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json", value = "/student/{roleId}")
 //    public ResponseEntity saveUserData(@RequestBody StudentDataVO studentDataVO, @RequestParam("employeeName") String employeeName) {
-        public ResponseEntity saveUserData(@RequestBody StudentDataVO studentDataVO) {
+        public ResponseEntity saveUserData(@RequestBody StudentDataVO studentDataVO, @PathVariable("roleId") Integer roleId) {
         try {
 
-            return ResponseEntity.ok(studentDataService.saveUser(studentDataVO, "employeeName"));
+            if(roleId==null){
+                throw  new SegaEduException("Id not Found");
+            }
+
+            return ResponseEntity.ok(studentDataService.saveUser(studentDataVO, roleId,"employeeName"));
 
 
         } catch (Exception e) {
