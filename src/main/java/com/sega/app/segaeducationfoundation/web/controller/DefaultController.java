@@ -1,6 +1,5 @@
 package com.sega.app.segaeducationfoundation.web.controller;
 
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +18,7 @@ public class DefaultController {
         return "Role User";
     }
 
-    @Secured({"ROLE_ADMIN"})
+//    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/admin")
     public String adminUser(){
         return "Role Admin";

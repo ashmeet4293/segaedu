@@ -12,6 +12,7 @@ import com.sega.app.segaeducationfoundation.repository.StudentDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,8 +114,11 @@ public class StudentDataService {
         return null;
     }
 
+    @Transactional
     public Boolean deleteEmployeeById(Integer studentId) {
+
         StudentDataEntity studentDataEntity=studentDataRepository.findOne(studentId);
+        studentDataEntity.getRoles().removeAll(studentDataEntity.getRoles());
         if(studentDataEntity == null){
             return false;
         }else{
